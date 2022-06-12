@@ -1,3 +1,7 @@
 index:
     path: /
     controller: App\Controller\CountryController::index
+
+export_csv:
+    path: /export/csv
+    controller: App\Controller\CountryController::exportCsv

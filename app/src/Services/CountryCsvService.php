@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-
 use App\Entity\Country;
 use App\Factory\CountryFactory;
 use Doctrine\ORM\EntityManagerInterface;
@@ -22,8 +21,7 @@ class CountryCsvService
         EntityManagerInterface $entityManager,
         $projectDir,
         CountryFactory $countryFactory
-    )
-    {
+    ) {
         $this->entityManager = $entityManager;
         $this->projectDir = $projectDir;
         $this->countryRepository = $this->entityManager->getRepository(Country::class);
@@ -43,7 +41,13 @@ class CountryCsvService
 
         foreach ($rows as $row) {
             if ($row['Abbreviation'] and $row['Name']) {
-                $hasCountryInserted = $this->countryRepository->findOneBy(['name' => $row['Name'], 'abbreviation' => $row['Abbreviation']]);
+                $hasCountryInserted = $this->countryRepository->findOneBy(
+                    [
+                            'name' => $row['Name'],
+                            'abbreviation' => $row['Abbreviation']
+                        ]
+                );
+
                 if ($hasCountryInserted) {
                     continue;
                 }

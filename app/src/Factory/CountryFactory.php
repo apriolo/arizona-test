@@ -6,7 +6,6 @@ use App\Entity\Country;
 
 class CountryFactory
 {
-
     /**
      * @param string $name
      * @param string $abbreviation

@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Country list
+{% endblock %}
+
+{% block body %}
+    <div class="col-md-12" style="margin-top: 10px;">
+        <div class="row">
+            <div class="col-md-3">
+                <form action="/" method="get" id="sortForm" name="sortForm">
+                    <select class="custom-select" name="sort" id="sort">
+                        <option value="name" {% if sorter == 'name' %} selected {% endif %}>Sort by Name</option>
+                        <option value="abbreviation" {% if sorter == 'abbreviation' %} selected {% endif %}>Sort by Abbreviation</option>
+                    </select>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-secondary export-csv">Export CSV</button>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Abbreviation</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for country in countries %}
+            <tr>
+                <th scope="row">{{ country.id }}</th>
+                <td>{{ country.name }}</td>
+                <td>{{ country.abbreviation }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        $('#sort').on('change', function(event) {
+            $('#sortForm').submit();
+        });
+
+        $('.export-csv').on('click', function (event) {
+            let sorter = ('{{ sorter }}') ? '?sort={{ sorter }}' : '';
+            window.open('{{ path("export_csv") }}' + sorter, '_blank');
+        });
+    </script>
+{% endblock %}

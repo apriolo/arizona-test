@@ -52,7 +52,7 @@ final class Version20220611035552 extends AbstractMigration implements Container
         $application->setAutoExit(false);
 
         //Loading Fixtures
-        $options = array('command' => 'csv:importCountry');
+        $options = array('command' => 'csv:importCountry', 'fileName' => 'country.csv');
         $application->run(new \Symfony\Component\Console\Input\ArrayInput($options));
     }
 }

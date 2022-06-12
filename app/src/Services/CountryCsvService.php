@@ -37,6 +37,9 @@ class CountryCsvService
     public function convertCsvToCountry(string $fileName): bool
     {
         $inputFile = $this->projectDir . '/src/Utils/' . $fileName;
+        if (!file_exists($inputFile)) {
+            return false;
+        }
         $decoder = new Serializer([new ObjectNormalizer()], [new CsvEncoder()]);
         $rows = $decoder->decode(file_get_contents($inputFile), 'csv');
 

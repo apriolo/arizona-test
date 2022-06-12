@@ -30,6 +30,7 @@ class CountryCsvService
 
 
     /**
+     * Description - Function to receive a csv file name and convert data to country
      * @param string $fileName
      * @return bool
      */
@@ -61,7 +62,12 @@ class CountryCsvService
         return true;
     }
 
-    public function exportToCsv($sorter)
+    /**
+     * Description - Create country CSV and return file path and file name
+     * @param string $sorter
+     * @return false|string[]
+     */
+    public function exportToCsv(string $sorter)
     {
         $countries = $this->countryRepository->findBy([], [$sorter => 'ASC']);
         $fileName = 'country-csv-' . date('Y-m-d-H-i-s') . '.csv';

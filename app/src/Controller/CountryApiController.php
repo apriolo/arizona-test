@@ -23,7 +23,7 @@ class CountryApiController extends ApiController
     public function index(Request $request): Response
     {
         $sorter = ($request->get('sort')) ?: 'name';
-        $countries = $this->countryApiService->findAllSorting($sorter);
+        $countries = $this->countryApiService->findAll($sorter);
 
         return $this->json(
             [

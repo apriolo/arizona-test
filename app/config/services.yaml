@@ -16,6 +16,9 @@ services:
     countryService:
         class: App\Services\CountryService
 
+    countryApiService:
+        class: App\Services\CountryApiService
+
     console_command.countryImport:
         class: App\Command\CountryCsvImportCommand
         arguments:

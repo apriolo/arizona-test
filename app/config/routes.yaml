@@ -5,3 +5,28 @@ index:
 export_csv:
     path: /export/csv
     controller: App\Controller\CountryController::exportCsv
+
+api_country:
+    path: /api/countries
+    controller: App\Controller\CountryApiController::index
+    methods: GET
+
+api_country_show:
+    path: /api/countries/{id}
+    controller: App\Controller\CountryApiController::show
+    methods: GET
+
+api_country_insert:
+    path: /api/countries
+    controller: App\Controller\CountryApiController::create
+    methods: POST
+
+api_country_delete:
+    path: /api/countries/{id}
+    controller: App\Controller\CountryApiController::delete
+    methods: DELETE
+
+api_country_update:
+    path: /api/countries/{id}
+    controller: App\Controller\CountryApiController::update
+    methods: PUT

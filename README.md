@@ -156,5 +156,7 @@ Response
 "data": "delete success"
 ```
 
+You can see a postman sample [here](https://github.com/apriolo/arizona-test/blob/master/Arizona.postman_collection.json)
+
 
 

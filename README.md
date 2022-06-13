@@ -66,6 +66,95 @@ filename.csv is the your file name.
 ![image](https://user-images.githubusercontent.com/77355017/173259817-53052c6a-0ca6-4199-9a36-513cf75cc78e.png)
 
 
+# API
+
+#### Index
+Method to get all countries
+```http
+  GET /api/countries
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+
+Response a list of Country
+```
+"data": [
+        {
+            "id": 12,
+            "name": "American Samoa",
+            "abbreviation": "AS"
+        },
+        ...
+```
+
+#### Create
+Method to create a new Country
+```http
+  POST /api/countries
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `name`      | `string` | **Required**, The Country name |
+| `abbreviation`| `string` | **Required**, The Country abbreviation |
+
+Response
+```
+"status": "200",
+"data": "Created"
+```
+
+#### Show
+Method to show a country by id
+```http
+  GET /api/countries/{id}
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `{id}`      | `int` | **Required**, The Country ID |
+
+Response
+```
+"data": {
+        "id": 2,
+        "name": "United Arab Emirates",
+        "abbreviation": "AE"
+    }
+```
+
+#### Update
+Method to update a country by id
+```http
+  PUT /api/countries/{id}
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `{id}`      | `int` | **Required**, The Country ID |
+| `name`      | `string` | The Country name |
+| `abbreviation`| `string` | The Country abbreviation |
+
+Response
+```
+"data": "update success"
+```
+
+#### Delete
+Method to delete a country by id
+```http
+  DELETE /api/countries/{id}
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `{id}`      | `int` | **Required**, The Country ID |
+
+Response
+```
+"data": "delete success"
+```
 
 
 
